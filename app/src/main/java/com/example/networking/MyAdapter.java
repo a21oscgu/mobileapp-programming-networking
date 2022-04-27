@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
-    List<String> my_items = Arrays.asList("1", "22", "333", "4444", "55555");
+    List<String> mountain = Arrays.asList();
 
     @NonNull
     @Override
@@ -22,11 +22,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(my_items.get(position));
+        holder.name.setText(mountain.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return my_items.size();
+        return mountain.size();
     }
 }
