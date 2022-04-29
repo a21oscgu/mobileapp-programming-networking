@@ -21,17 +21,18 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView.setAdapter(new MyAdapter());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        new JsonFile(this, this).execute(JSON_FILE);
-
+        //Hämta lokal JSON-data
+        //new JsonFile(this, this).execute(JSON_FILE);
+        //Starta nedladdning av JSON-data
+        new JsonTask(this).execute(JSON_URL);
+        recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     private final String JSON_FILE = "mountains.json";
-
 
     @Override
     public void onPostExecute(String json) {
         Log.d("MainActivity", json);
     }
-
 }
