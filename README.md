@@ -33,6 +33,6 @@ function errorCallback(error) {
 }
 ```
 
-**Detta skärmklipp visar layouten i appen:**
+**Detta skärmklipp visar den recyclerview som finns på hemskärmen i appen:**
 
 <img src="/Screenshot_20220502_123357.png" width="60%">
