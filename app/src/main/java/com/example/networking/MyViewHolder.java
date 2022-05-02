@@ -10,6 +10,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     public TextView name;
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
+        // Variablen kopplas med textview (se item.xml)
         name = itemView.findViewById(R.id.my_name);
     }
 }

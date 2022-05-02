@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
-    List<String> mountain = Arrays.asList();
+
+    ArrayList<String> mountain;
+    public MyAdapter(ArrayList<String> Mountain) {
+        mountain = Mountain;
+    }
 
     @NonNull
     @Override
