@@ -1,7 +1,6 @@
 package com.example.networking;
 
-/*
-Exempel
+/* Exempel
 
 {
   "ID": "mobilprog_k2",
@@ -35,35 +34,62 @@ public class Mountain {
     private int feet;
     private Auxdata auxdata;
 
-    public String getId() {
-        return id;
+    public String getID() {
+        if (id.equals("")) {
+            return null;
+        }
+        else {
+            return id;
+        }
     }
-
     public String getName() {
-        return name;
+        if (name.equals("")) {
+            return null;
+        }
+        else {
+            return name;
+        }
     }
-
     public String getType() {
-        return type;
+        if (type.equals("")) {
+            return null;
+        }
+        else {
+            return type;
+        }
     }
 
     public String getCompany() {
-        return company;
+        if (company.equals("")) {
+            return null;
+        }
+        else {
+            return company;
+        }
     }
 
     public String getLocation() {
-        return location;
+        if (location.equals("")) {
+            return null;
+        }
+        else {
+            return location;
+        }
     }
 
     public String getCategory() {
-        return category;
+        if (category.equals("")) {
+            return null;
+        }
+        else {
+            return category;
+        }
+    }
+    public Integer getSize() {
+            return meters;
     }
 
-    public int getMeters() {
-        return meters;
-    }
-
-    public int getFeet() {
+    public Integer getCost() {
         return feet;
     }
 
