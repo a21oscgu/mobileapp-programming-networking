@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     //private final String JSON_FILE = "mountains.json";
 
-    ArrayList<String> MountainsArray;
+    ArrayList<Mountain> mountainsArray;
 
     RecyclerView recyclerView;
 
@@ -41,24 +42,29 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     public void onPostExecute(String json) {
         Log.d("MainActivity", json);
 
+        //GSON objekt skapas
         Gson gson = new Gson();
+        // Unmarshall JSON -> a single object
         Mountains = gson.fromJson(json,Mountain[].class);
 
-        MountainsArray = new ArrayList<>();
+        mountainsArray = new ArrayList<>();
 
-        for (Mountain mountain : Mountains) { // This line = "for (int i = 0; i < Mountains.length; i++){"
+        Collections.addAll(mountainsArray, Mountains);
+        // Old code
+        /*for (Mountain mountain : Mountains) { // This line = "for (int i = 0; i < Mountains.length; i++){"
 
+            mountainsArray.add(mountain);
 
             String name = mountain.getName();
-            MountainsArray.add(name);
-            MountainsArray.add("\n");
+            mountainsArray.add(name);
+            mountainsArray.add("\n");
 
             //Log.d("==>","Namn: " + name);
             //Log.d("MainActivity==>","Mountain: "+Mountains[i].getName());
-
-        }
+        }*/
         recyclerView = findViewById(R.id.my_recyclerview);
+        // Kopplar Adapter och RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(MountainsArray));
+        recyclerView.setAdapter(new MyAdapter(mountainsArray));
     }
 }

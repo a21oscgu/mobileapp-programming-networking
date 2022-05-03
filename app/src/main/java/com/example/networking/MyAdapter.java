@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    ArrayList<String> mountain;
-    public MyAdapter(ArrayList<String> Mountain) {
-        mountain = Mountain;
+    ArrayList<Mountain> mountains;
+    public MyAdapter(ArrayList<Mountain> mountains) {
+        this.mountains = mountains;
     }
 
     @NonNull
@@ -25,11 +25,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(mountain.get(position));
+        holder.name.setText(mountains.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return mountain.size();
+        return mountains.size();
     }
 }
