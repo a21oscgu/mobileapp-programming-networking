@@ -3,36 +3,21 @@
 
 # Assignment 5: Networking
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+**Den här appen är forkad från LenaSYS/mobileapp-programming-networking. Appen har en <i>RecyclerView</i> i Main-Activity vilket är appens startsida, där varje list-item är en <i>TextView</i>. En arraylist ”MountainsArray” har lagts till som en variabel i <i>MainActivity.java</i>, se kodsnutt 1:**
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+ArrayList<String> MountainsArray;
 ```
 
-**Detta skärmklipp visar den recyclerview som finns på hemskärmen i appen:**
+**En RecyclerView.Adapter har också lagts till som en variabel i <i>MainActivity.java</i>, se kodsnutt 2:**
+
+```
+RecyclerView recyclerView;
+```
+
+**Den <i>RecyclerView</i> som har skapats har fått en <i>Adapter</i> "MyAdapter" och en <i>ViewHolder</i> "MyViewHolder". För att placera nammnen på alla bergen, som finns i "FamousPeaksJSON", i min <i>RecyclerView</i> har ett antal steg utförts. Det första var att ladda ned JSON-datan och konvertera den till ett java-objekt m.h.a. GSON (Unmarshall JSON). Därefter fick data-informationen delas upp i ett antal strängar och heltal, se klassen "Mountain.java". Sedan skapades en for-loop i "onPostExecute()" som går igenom java-objektet och lägger till varje bergs-namn i listan "MountainsArray", som slutligen presenteras i min <i>RecyclerView</i>, d.v.s. informationen presenteras i listan som finns på startsidan i appen.**
+
+
+**Detta skärmklipp visar den <i>RecyclerView</i> som finns på startsidan i appen:**
 
 <img src="/Screenshot_20220502_123357.png" width="60%">
