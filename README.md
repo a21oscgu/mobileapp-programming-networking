@@ -15,8 +15,11 @@ ArrayList<Mountain> mountainsArray;
 RecyclerView recyclerView;
 ```
 
-**Den <i>RecyclerView</i> som har skapats har fått en <i>Adapter</i> "MyAdapter" och en <i>ViewHolder</i> "MyViewHolder". För att placera nammnen på alla bergen, som finns i "FamousPeaksJSON", i min <i>RecyclerView</i> har ett antal steg utförts. Det första var att ladda ned JSON-datan och konvertera den till ett java-objekt m.h.a. GSON (Unmarshall JSON). Därefter fick data-informationen delas upp i ett antal strängar och heltal, se klassen "Mountain.java". Sedan skapades en for-loop i "onPostExecute()" som går igenom java-objektet och lägger till varje bergs-namn i listan "MountainsArray", som slutligen presenteras i min <i>RecyclerView</i>, d.v.s. informationen presenteras i listan som finns på startsidan i appen.**
+**Den <i>RecyclerView</i> som har skapats har fått en <i>Adapter</i> "MyAdapter" och en <i>ViewHolder</i> "MyViewHolder". För att placera nammnen på alla bergen, som finns i "FamousPeaksJSON", i min <i>RecyclerView</i> har ett antal steg utförts. Det första var att ladda ned JSON-datan och konvertera den till ett java-objekt m.h.a. GSON (Unmarshall JSON). Därefter fick data-informationen delas upp i ett antal strängar och heltal, se klassen "Mountain.java". Sedan läggs varje bergs-namn till i listan "MountainsArray" under "onPostExecute()", se kodsnutt 3 nedanför. Namnen på bergen presenteras slutligen i min <i>RecyclerView</i>, d.v.s. informationen presenteras i listan som finns på startsidan i appen.**
 
+```
+Collections.addAll(mountainsArray, Mountains);
+```
 
 **Detta skärmklipp visar den <i>RecyclerView</i> som finns på startsidan i appen:**
 
