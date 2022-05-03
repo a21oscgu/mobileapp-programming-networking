@@ -6,7 +6,7 @@
 **Den här appen är forkad från LenaSYS/mobileapp-programming-networking. Appen har en <i>RecyclerView</i> i Main-Activity vilket är appens startsida, där varje list-item är en <i>TextView</i>. En arraylist ”MountainsArray” har lagts till som en variabel i <i>MainActivity.java</i>, se kodsnutt 1:**
 
 ```
-ArrayList<String> MountainsArray;
+ArrayList<Mountain> mountainsArray;
 ```
 
 **En RecyclerView.Adapter har också lagts till som en variabel i <i>MainActivity.java</i>, se kodsnutt 2:**
