@@ -29,6 +29,11 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        recyclerView = findViewById(R.id.my_recyclerview);
+        // Kopplar Adapter och RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new MyAdapter(mountainsArray));
+
         //Hämta lokal JSON-data
         //new JsonFile(this, this).execute(JSON_FILE);
 
@@ -62,9 +67,5 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             //Log.d("==>","Namn: " + name);
             //Log.d("MainActivity==>","Mountain: "+Mountains[i].getName());
         }*/
-        recyclerView = findViewById(R.id.my_recyclerview);
-        // Kopplar Adapter och RecyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(mountainsArray));
     }
 }
